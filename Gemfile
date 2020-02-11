@@ -32,6 +32,7 @@ group :development, :test do
   gem 'rspec-its'
   gem 'spring-commands-rspec'
   gem 'shoulda-matchers'
+  gem 'webmock'
 end
 
 group :development do

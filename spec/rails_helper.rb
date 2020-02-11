@@ -33,6 +33,17 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 
+require 'webmock/rspec'
+WebMock.disable_net_connect!(allow_localhost: true)
+ # stub_request(:get, "https://cloud.iexapis.com/v1/stock/?token=pk_a616f2fa7840424682a5c95aaf64ff6b").
+ #         with(
+ #           headers: {
+ #       	  'Accept'=>'application/json; charset=utf-8',
+ #       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+ #       	  'User-Agent'=>'IEX Ruby Client/1.1.0'
+ #           }).
+ #         to_return(status: 200, body: "", headers: {})
+
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec
@@ -68,4 +79,9 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  RSpec.configure do |config|
+    config.before(:each) do
+      stub_request(:get, /cloud.iexapis.com/).to_return(status: 200, body: [], headers: {})
+    end
+  end
 end
