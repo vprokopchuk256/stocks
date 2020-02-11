@@ -35,7 +35,7 @@ RSpec.describe StocksController, type: :controller do
     subject { get(:show, params: params) }
 
     its(:code) { is_expected.to eq('200') }
-    its(:body) { is_expected.to eq(StockSerializer.new(stock).to_json) }
+    its(:body) { is_expected.to eq(StockSerializerWithHistory.new(stock).to_json) }
 
     context 'when stock with the specified symbol does not exist' do
       let(:params) { { symbol: SecureRandom.alphanumeric } }
@@ -47,7 +47,7 @@ RSpec.describe StocksController, type: :controller do
       let(:params) { { symbol: 'aaa' } }
 
       its(:code) { is_expected.to eq('200') }
-      its(:body) { is_expected.to eq(StockSerializer.new(stock).to_json) }
+      its(:body) { is_expected.to eq(StockSerializerWithHistory.new(stock).to_json) }
     end
   end
 end

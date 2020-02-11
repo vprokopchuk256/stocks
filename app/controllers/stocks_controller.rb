@@ -8,7 +8,8 @@ class StocksController < ApplicationController
   end
 
   def show
-    render json: Stock.find_by!(symbol: params.require(:symbol).upcase)
+    render json: Stock.find_by!(symbol: params.require(:symbol).upcase),
+           serializer: StockSerializerWithHistory
   end
 
   private
