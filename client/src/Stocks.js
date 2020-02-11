@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
+import client from './client';
 import { Stock } from './Stock';
 
 export const Stocks = ({ q }) => {
@@ -8,7 +8,7 @@ export const Stocks = ({ q }) => {
 
   useEffect(() => {
       const loadData = async () => {
-        const res = await axios(`http://localhost:3000/stocks?q=${q}&limit=10`);
+        const res = await client.stocks(q)
 
         console.log(res.data);
 

@@ -1,16 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 import './App.css';
-import { Stocks } from './Stocks'
-import { Filter } from './Filter'
+import { Main } from './Main';
+import { StockDetails } from './StockDetails';
 
 export default () => {
-  const [q, setQ] = useState('');
-
   return (
-    <div className="App">
-        <Filter onChange={setQ} />
-        <Stocks q={q} />
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/:symbol">
+          <StockDetails />
+        </Route>
+        <Route path="/">
+          <Main />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
