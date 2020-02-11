@@ -9,10 +9,7 @@ class GetStockHistory
     IEX::Api::Client.new.chart(symbol, '1m').collect do |hrec|
       {
         date: hrec.date,
-        open: hrec.open,
-        hight: hrec.high,
-        low: hrec.low,
-        close: hrec.close
+        value: [hrec.open, hrec.high, hrec.low, hrec.close].sum / 4
       }
     end
   end

@@ -35,10 +35,7 @@ describe GetStockHistory do
     it do
       is_expected.to eq([{
         date: hrec.date,
-        open: hrec.open,
-        hight: hrec.high,
-        low: hrec.low,
-        close: hrec.close
+        value: (hrec.open + hrec.high + hrec.low + hrec.close) / 4
       }])
     end
   end
