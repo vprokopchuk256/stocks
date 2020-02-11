@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './App.css';
 import { Stocks } from './Stocks'
+import { Filter } from './Filter'
 
-function App() {
+export default () => {
+  const [q, setQ] = useState('');
+
   return (
     <div className="App">
-        <Stocks q="a" />
+        <Filter onChange={setQ} />
+        <Stocks q={q} />
     </div>
   );
 }
-
-export default App;
