@@ -1,0 +1,19 @@
+current directory: /projects/stocks/vendor/gems/byebug-11.1.1/ext/byebug
+/Users/vprokopchuk/.rbenv/versions/2.5.1/bin/ruby -r ./siteconf20200210-12921-t4yks.rb extconf.rb
+creating Makefile
+
+current directory: /projects/stocks/vendor/gems/byebug-11.1.1/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /projects/stocks/vendor/gems/byebug-11.1.1/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /projects/stocks/vendor/gems/byebug-11.1.1/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.bundle ./.gem.20200210-12921-w9t64t/byebug
