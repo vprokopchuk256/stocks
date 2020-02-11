@@ -6,12 +6,12 @@ import {
 
 import 'antd/dist/antd.css';
 import './App.css';
-import { StockDetails } from './StockDetails';
+import { Home } from './Home';
 
 export default () => {
   return (
     <Router>
-      <Route path="/:symbol?" component={StockDetails} />
+      <Route path="/:symbol?" component={Home} />
     </Router>
   );
 };

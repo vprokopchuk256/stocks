@@ -4,7 +4,7 @@ import { useParams, Redirect } from 'react-router-dom';
 import { Details } from './Details';
 import { Filter } from './Filter';
 
-export const StockDetails = () => {
+export const Home = () => {
   const { symbol } = useParams();
   const [selectedSymbol, setSelectedSymbol] = useState(null);
 
