@@ -5,7 +5,7 @@ const httpClient = axios.create({
 });
 
 export default {
-    stocks: (q) => httpClient.get(`stocks?q=${q}&limit=10`),
-    stock: (symbol) => httpClient.get(`stocks/${symbol}`),
+  stocks: (q) => httpClient.get(`stocks?q=${q}&limit=10`),
+  stock: (symbol) => httpClient.get(`stocks/${symbol}`),
 }
 
