@@ -16,7 +16,7 @@ export const Stocks = ({ q }) => {
       };
 
       loadData();
-  }, []);
+  }, [q]);
 
   const renderStocks = () => {
     return stocks.map(Stock);
