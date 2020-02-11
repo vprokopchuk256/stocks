@@ -4,7 +4,11 @@ class StocksController < ApplicationController
   end
 
   def index
-    render json: q ? Stock.search(q: q) : Stock.all
+    scope = q ? Stock.search(q: q) : Stock.all
+    scope = scope.limit(limit) if limit
+    score = scope.order(company_name: :asc)
+
+    render json: scope
   end
 
   def show
@@ -16,5 +20,9 @@ class StocksController < ApplicationController
 
   def q
     params[:q]
+  end
+
+  def limit
+    params[:limit]
   end
 end

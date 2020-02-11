@@ -21,11 +21,24 @@ RSpec.describe StocksController, type: :controller do
         allow(Stock)
           .to receive(:search)
           .with(q: q)
-          .and_return([specific_stock])
+          .and_return(Stock.where(id: specific_stock))
       end
 
       its(:code) { is_expected.to eq('200') }
       its(:body) { is_expected.to eq([StockSerializer.new(specific_stock)].to_json) }
+    end
+
+    context 'when limit param specified' do
+      let(:params) { { limit: 1 } }
+
+      its(:code) { is_expected.to eq('200') }
+      its(:body) { is_expected.to eq([StockSerializer.new(stock)].to_json) }
+
+      context 'and there is another stock' do
+        before { Stock.create!(symbol: 'BBB', company_name: 'BBB Company') }
+
+        its(:body) { is_expected.to eq([StockSerializer.new(stock)].to_json) }
+      end
     end
   end
 

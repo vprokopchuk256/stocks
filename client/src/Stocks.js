@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export const Stocks = () => {
+import { Stock } from './Stock';
+
+export const Stocks = ({ q }) => {
   const [stocks, seStocks] = useState([]);
 
   useEffect(() => {
       const loadData = async () => {
-        const res = await axios('http://localhost:3000/stocks');
+        const res = await axios(`http://localhost:3000/stocks?q=${q}&limit=10`);
 
         console.log(res.data);
 
@@ -17,7 +19,7 @@ export const Stocks = () => {
   }, []);
 
   const renderStocks = () => {
-    return stocks.map(stock => <div key={stock.symbol}>{stock.symbol}</div>)
+    return stocks.map(Stock);
   }
 
   return (
