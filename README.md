@@ -22,3 +22,13 @@
 2. Install dependencies: `yarn install`
 3. Go to the project directory. Start FE server: `yarn run start`
 4. Check FE server. Go to `http://localhost:3001/`
+
+You should see something like this: https://www.dropbox.com/s/bh6urm9mgc94b12/Stocks.mov?dl=0
+
+# Interesting places in the code
+
+1. Where the history data is received: https://github.com/vprokopchuk256/stocks/blob/master/app/services/get_stock_history.rb
+2. Where the stocks and history serialized for client: https://github.com/vprokopchuk256/stocks/blob/master/app/serializers/stock_serializer_with_history.rb
+3. Where the data is dispatched to the client: https://github.com/vprokopchuk256/stocks/blob/master/app/controllers/stocks_controller.rb
+4. Main page ( search and details ): https://github.com/vprokopchuk256/stocks/blob/master/client/src/Home.js
+5. Details component ( with chart ): https://github.com/vprokopchuk256/stocks/blob/master/client/src/Details.js

@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import { AutoComplete, Input, Button, Icon } from 'antd';
+import { AutoComplete, Input, Icon } from 'antd';
 import styled from 'styled-components';
 
 import client from './client';
 
-const AutoCompleteStyles = styled(AutoComplete)`
-  width: 100%;
+const AutoCompleteContainer = styled.div`
   padding-left: 5rem;
   padding-right: 5rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
+`;
+
+const AutoCompleteStyles = styled(AutoComplete)`
+  width: 100%;
 `;
 
 export const Filter = ({ onSelect }) => {
@@ -22,7 +25,7 @@ export const Filter = ({ onSelect }) => {
   };
 
   return (
-    <div>
+    <AutoCompleteContainer>
       <AutoCompleteStyles dataSource={dataSource} onSearch={onSearch} onSelect={onSelect} placeholder="Company name">
         <Input
           suffix={(
@@ -30,6 +33,6 @@ export const Filter = ({ onSelect }) => {
           )}
         />
       </AutoCompleteStyles>
-    </div>
+    </AutoCompleteContainer>
   );
 }

@@ -10,7 +10,7 @@ const HistoryChart = ({ history }) => {
 
   useEffect(() => {
     if (canvasRef.current) {
-      new Chart(document.getElementById('myChart').getContext('2d'), {
+      new Chart(canvasRef.current.getContext('2d'), {
         type: 'line',
         title: {
           display: false
@@ -49,9 +49,7 @@ const HistoryChart = ({ history }) => {
     };
   }, [history]);
 
-  return (
-    <canvas id='myChart' ref={canvasRef} />
-  )
+  return <canvas ref={canvasRef} />;
 };
 
 export const Details = ({ symbol }) => {
