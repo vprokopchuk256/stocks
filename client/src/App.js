@@ -4,8 +4,6 @@ import {
   Route,
 } from "react-router-dom";
 
-import 'antd/dist/antd.css';
-import './App.css';
 import { Home } from './Home';
 
 export default () => {

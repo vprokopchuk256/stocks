@@ -3,6 +3,7 @@ import Chart from 'chart.js';
 import moment from 'moment';
 
 import client from './client';
+import { StockDescription } from './StockDescription';
 
 const HistoryChart = ({ history }) => {
   const canvasRef = useRef(null);
@@ -52,6 +53,7 @@ const HistoryChart = ({ history }) => {
     <canvas id='myChart' ref={canvasRef} />
   )
 };
+
 export const Details = ({ symbol }) => {
   const [data, setData] = useState(null);
 
@@ -67,6 +69,7 @@ export const Details = ({ symbol }) => {
 
   return (
     data && <div>
+      <StockDescription symbol={data.symbol} companyName={data.company_name} />
       <HistoryChart history={data.history} />
     </div>
   );

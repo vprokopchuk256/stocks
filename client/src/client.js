@@ -8,4 +8,3 @@ export default {
   stocks: (q) => httpClient.get(`stocks?q=${q}&limit=10`),
   stock: (symbol) => httpClient.get(`stocks/${symbol}`),
 }
-

@@ -1,3 +1,3 @@
 IEX::Api.configure do |config|
-  config.publishable_token = 'pk_a616f2fa7840424682a5c95aaf64ff6b'
+  config.publishable_token = 'pk_fb17e2a80bc64ce4a40ac0a893e375f8'
 end
